@@ -1,55 +1,40 @@
-<HTML>
+<HTML class="bg-dark">
 
-    <header>
-        <title>Página Top</title>
-        <meta charset='UTF-8' />
-        <link rel="stylesheet" type="text/css" href="style.css"/>
-    </header>
+	<?php include 'header.php'; ?>
 
-    <body>
-        <div id="header">
-            <center>
-                <h1 id="titulo">Página do Billy</h1>
-            </center>
-        </div>
-
-		<div id = "menu">
-			<button class = "menuBotao" href = "index.php">Cadastro</button>
-
-			<button class = "menuBotao" href = "./login.php">Login</button>
-		</div>
-
-		<div id = "content">
+		<div id="content" class="container">
 			<center>
-				<?php
-				session_start();
-				if($_SESSION['logged']){
-				
-					echo "<h1>Bem vindx ". $_SESSION['name'] . ".</h1>";
-				
-				}
-				else{
-					echo "<h1>Você não é bem vindo.</h1>";
-				}
-				?>
-				<form method="GET" action="process.php">
-					<input type = "text" class = "inputCadastro" placeholder = "Nome completo" name="nome"/>
-					<br>
-					<input type = "password" class = "inputCadastro" placeholder = "Senha" name="senha"/>
-					<br>
-					<input type = "text" class = "inputCadastro" placeholder = "Email" name="email"/>
-					<br>
-					<button type = "submit" class = "menuBotao">Cadastrar</button>
-				</form>
+					<div class="row">
+						<div class="col">
+							<?php
+								//session_start();
+								if($_SESSION['logged']){
+									echo "<h1 class='text-white'>Bem vindx ". $_SESSION['name'] . ".</h1>";
+								}
+								else{
+									echo "<h1 class='text-white'>Cadastre-se!</h1>";
+								}
+							?>
+						</div>					
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4">
+							<form method="GET" action="process.php">
+								<input type = "text" class = "form-control" placeholder = "Nome completo" name="nome"/>
+								<br>
+								<input type = "password" class = "form-control" placeholder = "Senha" name="senha"/>
+								<br>
+								<input type = "text" class = "form-control" placeholder = "Email" name="email"/>
+								<br>
+								<button type = "submit" class = "btn btn-secondary">Cadastrar</button>
+							</form>
+						</div>
+					</div>
+				</div>
 			</center>
 		</div>
 
-        <div id="footer">
-        <p>Site feito por Billy.</p>
-        </div>
-    </body>
+	<?php include 'footer.php'; ?>
 
-    <footer>
-
-    </footer>
 </HTML>

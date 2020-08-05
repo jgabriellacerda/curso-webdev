@@ -1,46 +1,43 @@
-<HTML>
-
-	<header>
-		<title>Login</title>
-		<meta charset = "utf-8"/>
-		<link rel = "stylesheet" type = "text/css" href = "index.css"/>
-	</header>
-
-	<body>
-
-		<div id = "header">
-			<h1>Curso do Bart!</h1>
-		</div>
-
-		<div id = "menu">
-			<button class = "menuBotao" href = "index.php">Cadastro</button>
-
-			<button class = "menuBotao" href = "login.php">Login</button>
-		</div>
+<HTML class="bg-dark">
+	
+	<?php include 'header.php'; ?>
 
 		<div id = "content">
 			<center>
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<?php
+								//session_start();
+								if($_SESSION['logged']){
+								
+									echo "<h1 class='text-white'>Bem vindx ". $_SESSION['name'] . ".</h1>";
+								
+								}
+								else{
+									$_SESSION['logged'] = false;
+									echo "<h1 class='text-white'>Faça seu login!</h1>";
+								}
+							?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4">
+							<form method="GET" action="logar.php">
 
-				<h1>Faça seu login!</h1>
-				<form method="GET" action="logar.php">
-
-                    <input type = "text" class = "inputCadastro" placeholder = "Email" name="email"/>
-					<br>
-					<input type = "password" class = "inputCadastro" placeholder = "Senha" name="senha"/>
-					<br>
-					
-					<button type = "submit" class = "menuBotao">Login</button>
-				</form>
+								<input type = "text"  class = "form-control" placeholder = "Email" name="email"/>
+								<br>
+								<input type = "password"  class = "form-control" placeholder = "Senha" name="senha"/>
+								<br>
+								
+								<button type = "submit" class = "btn btn-secondary">Login</button>
+							</form>
+						</div>
+					</div>
 			</center>
 		</div>
 
-		<div id = "footer">
-			<p>Site feito por Pedro Reis.</p>
-		</div>
-
-
-
-	</body>
-
+	<?php include 'footer.php'; ?>
 
 </HTML>
